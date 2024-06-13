@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agência Bancária</title>
+</head>
+<body>
+  <h1>Agência Bancária</h1>
+  <form id="form">
+    <label for="numeroConta">Número da Conta:</label>
+    <input type="number" id="numeroConta" name="numeroConta"><br><br>
+    <label for="saldo">Saldo:</label>
+    <input type="number" id="saldo" name="saldo"><br><br>
+    <input type="submit" value="Enviar">
+  </form>
+  <div id="resultado"></div>
+
+  <script>
+    let form = document.getElementById("form");
+    let resultado = document.getElementById("resultado");
+
+    let clientes = [];
+    let totalClientes = 0;
+    let totalNegativos = 0;
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      let numeroConta = parseInt(document.getElementById("numeroConta").value);
+      let saldo = parseFloat(document.getElementById("saldo").value);
+
+      clientes.push({numeroConta: numeroConta, saldo: saldo});
+      totalClientes++;
+
+      if (saldo < 0) {
+        totalNegativos++;
+      }
+
+      if (totalClientes === N) {
+        resultado.innerHTML = "Total de clientes cadastrados: " + totalClientes + "<br>Total de clientes com saldo negativo: " + totalNegativos;
+      } else {
+        resultado.innerHTML = "Clientes cadastrados até agora: " + totalClientes;
+      }
+    });
+  </script>
+</body>
+</html>

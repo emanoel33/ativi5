@@ -1,0 +1,23 @@
+<script>
+    let compras = [];
+while (true) {
+  console.log("Opções:");
+  console.log("1. Adicionar um novo elemento");
+  console.log("2. Mostrar todos os elementos adicionados");
+  console.log("0. Sair do programa");
+  let opcao = prompt("Escolha uma opção: ");
+  if (opcao === "1") {
+    let novoElemento = prompt("Adicione um novo elemento: ");
+    compras.push(novoElemento);
+  } else if (opcao === "2") {
+    console.log("Elementos adicionados:");
+    for (let i = 0; i < compras.length; i++) {
+      console.log(compras[i]);
+    }
+  } else if (opcao === "0") {
+    break;
+  } else {
+    console.log("Opção inválida");
+  }
+}
+</script>

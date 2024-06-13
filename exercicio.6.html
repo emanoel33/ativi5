@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Altura Média</title>
+</head>
+<body>
+  <h1>Altura Média</h1>
+  <form id="form">
+    <label for="altura">Altura:</label>
+    <input type="number" id="altura" name="altura"><br><br>
+    <input type="submit" value="Enviar">
+  </form>
+  <div id="resultado"></div>
+
+  <script>
+    let form = document.getElementById("form");
+    let resultado = document.getElementById("resultado");
+
+    let alturas = [];
+    let somaAlturas = 0;
+    let contador = 0;
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      let altura = parseFloat(document.getElementById("altura").value);
+
+      alturas.push(altura);
+      somaAlturas += altura;
+      contador++;
+
+      if (contador === 20) {
+        let mediaAltura = somaAlturas / alturas.length;
+        let superior2metros = 0;
+
+        for (let i = 0; i < alturas.length; i++) {
+          if (alturas[i] > 2) {
+            superior2metros++;
+          }
+        }
+
+        resultado.innerHTML = "Altura média: " + mediaAltura.toFixed(2) + "<br>Número de pessoas com altura superior a 2 metros: " + superior2metros;
+      } else {
+        resultado.innerHTML = "Alturas coletadas até agora: " + alturas.length;
+      }
+    });
+  </script>
+</body>
+</html>

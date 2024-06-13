@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aptidão para Serviço Militar</title>
+</head>
+<body>
+  <h1>Aptidão para Serviço Militar</h1>
+  <form id="form">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome"><br><br>
+    <label for="sexo">Sexo:</label>
+    <input type="text" id="sexo" name="sexo"><br><br>
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade"><br><br>
+    <label for="saude">Saúde:</label>
+    <input type="text" id="saude" name="saude"><br><br>
+    <input type="submit" value="Enviar">
+  </form>
+  <div id="resultado"></div>
+
+  <script>
+    let form = document.getElementById("form");
+    let resultado = document.getElementById("resultado");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      let nome = document.getElementById("nome").value;
+      let sexo = document.getElementById("sexo").value;
+      let idade = parseInt(document.getElementById("idade").value);
+      let saude = document.getElementById("saude").value;
+
+      let pessoas = [];
+      pessoas.push({nome: nome, sexo: sexo, idade: idade, saude: saude});
+
+      let aptos = 0;
+      if (sexo === "Masculino" && idade >= 18 && saude === "Sim") {
+        aptos++;
+      }
+
+      resultado.innerHTML = "Pessoas aptas para o serviço militar obrigatório: " + aptos;
+    });
+  </script>
+</body>
+</html>
